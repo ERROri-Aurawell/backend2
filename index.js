@@ -17,7 +17,7 @@ app.get('/ufs/:iduf', (req, res) => {
     const uf = buscarUfPorId(req.params.iduf);
 
     if (uf){
-        res.json(uf);
+        res.json(uf) ;
     }else if(isNaN(parseInt(req.params.iduf))) {
         res.status(400).send({"Erro": "Requisição inválida"});
     }else{
