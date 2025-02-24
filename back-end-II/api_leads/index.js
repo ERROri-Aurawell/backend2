@@ -1,12 +1,15 @@
 import express from 'express';
+import cors from 'cors';
 import { cadastro } from './servico/cadastro_servico.js';
 import { validaUsuario } from './servico/validacao/valida.js';
 
+const app = express();
+app.use(cors());
 
+app.use(express.json());
 
 app.post('/usuarios', async (req, res) => {
     const { nome, email, telefone } = req.body;
-
     const resultado = validaUsuario(nome, email, telefone);
     
     if (resultado.status) {
@@ -15,7 +18,6 @@ app.post('/usuarios', async (req, res) => {
     } else {
         res.status(400).json(resultado);
     }
-
 
 })
 

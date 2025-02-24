@@ -6,3 +6,5 @@ const pool = mysql.createPool({
     password : 'senha',
     database : 'banco_de_dados'
 });
+
+export default pool;
