@@ -11,11 +11,11 @@ app.use(express.json());
 app.post('/usuarios', async (req, res) => {
     const { nome, email, telefone } = req.body;
     const resultado = validaUsuario(nome, email, telefone);
-    
-    if (resultado.status) {
+    try {
         await cadastro(nome, email, telefone)
         res.status(202).end();
-    } else {
+
+    } catch (error) {
         res.status(400).json(resultado);
     }
 

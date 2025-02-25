@@ -1,5 +1,6 @@
 function validaNome(nome) {
-    const regexNome = /^ [a-zA-ZÀ-ÿ\s\-']+ $/;
+    const regexNome = /^[a-zA-ZÁ-ÿ\s\-']+$/;
+
     const isValid = nome.length >= 2 && regexNome.test(nome);
     return isValid; 
 }
